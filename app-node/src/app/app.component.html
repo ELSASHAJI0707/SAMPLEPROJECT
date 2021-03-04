@@ -1,0 +1,717 @@
+<div class="row">
+ <div class="col-sm-6">
+<div style="padding: 50px;  display: inline-block;">
+
+<h6>CATEGORY</h6>
+
+<div class="form-check" >
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getDiningDetailsList()" [(ngModel)]="isCheckedDining">
+  <label class="form-check-label" for="flexCheckDefault">
+  Dining
+  </label>
+</div>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"(click)="getTakeAwayDetailsList()" [(ngModel)]="isCheckedTakeAway">
+  <label class="form-check-label" for="flexCheckDefault">
+    Take-Away
+  </label>
+  </div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"(click)="getDeliveryDetailsList()" [(ngModel)]="isCheckedDelivery">
+<label class="form-check-label" for="flexCheckDefault">
+ Delivery
+</label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getPubsBarsDetailsList()" [(ngModel)]="isCheckedPubsBars">
+<label class="form-check-label" for="flexCheckDefault">
+ Pubs & Bars
+</label>
+</div>
+
+</div>
+
+
+<div style="padding: 50px;  display: inline-block;">
+<h6>CUISINE</h6>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getCafeFoodDetailsList()" [(ngModel)]="isCheckedCafeFood">
+<label class="form-check-label" for="flexCheckDefault">
+ Cafe Food
+ </label>
+</div>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"(click)="getCoffeeTeaDetailsList()" [(ngModel)]="isCheckedCoffeeTea">
+ <label class="form-check-label" for="flexCheckDefault">
+ Coffee & Tea
+ </label>
+</div>
+
+ <div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"(click)="getPizzaDetailsList()" [(ngModel)]="isCheckedPizza">
+ <label class="form-check-label" for="flexCheckDefault">
+  Pizza 
+  </label>
+</div>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getFastFoodDetailsList()" [(ngModel)]="isFastFood">
+ <label class="form-check-label" for="flexCheckDefault">
+ Fast Food
+ </label>
+ </div>
+</div>
+
+
+
+
+
+
+ 
+<div style="padding: 50px;  display: inline-block;">
+   
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getAsianDetailsList()" [(ngModel)]="isCheckedAsian">
+ <label class="form-check-label" for="flexCheckDefault">
+ Asian
+ </label>
+</div>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getBakeryDetailsList()" [(ngModel)]="isCheckedBakery">
+ <label class="form-check-label" for="flexCheckDefault">
+  Bakery
+ </label>
+ </div>
+
+ <div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"(click)="getItalianDetailsList()" [(ngModel)]="isCheckedItalian">
+ <label class="form-check-label" for="flexCheckDefault">
+  Italian
+ </label>
+</div>
+
+<div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getSandwitchDetailsList()" [(ngModel)]="isCheckedSandwitch">
+ <label class="form-check-label" for="flexCheckDefault">
+ Sandwitch
+ </label>
+ </div>
+ </div>
+
+  <div style="padding: 50px;  display: inline-block;">
+   
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getChineseDetailsList()" [(ngModel)]="isCheckedChinese">
+<label class="form-check-label" for="flexCheckDefault" >
+ chinese
+ </label>
+</div>
+
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getPubFoodDetailsList()" [(ngModel)]="isCheckedPubFood">
+ <label class="form-check-label" for="flexCheckDefault">
+  Pub food
+ </label>
+ </div>
+
+ <div class="form-check">
+ <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="getOtherDetailsList()" [(ngModel)]="isCheckedOther">
+ <label class="form-check-label" for="flexCheckDefault">
+  other
+ </label>
+</div>
+
+<div class="form-check">
+
+ <label class="" for="">
+ </label>
+  </div>
+   
+</div>
+
+</div>
+
+
+<div class="col-sm-2" style="padding-top:40px!important">
+ Rating
+<ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+cost
+  <ngx-slider [(value)]="value1" [(highValue)]="highValue1" [options]="options1"></ngx-slider>
+  </div>
+</div>
+
+ <div *ngIf="flagDining==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+
+ <div *ngFor="let list of diningList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsDiningMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagDining==true && flagDining1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+ 
+ 
+  <div *ngIf="flagTakeAway==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of takeAwayList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsTakeAwayMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagTakeAway==true && flagTakeAway1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+
+ <div *ngIf="flagDelivery==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of deliveryList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsDeliveryMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagDelivery==true && flagDelivery1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagPubsBars==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of pubsBarsList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsPubsBarsMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagPubsBars==true && flagPubsBars1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagCafeFood==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of cafeFoodList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsCafeFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagCafeFood==true && flagCafeFood1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+<div *ngIf="flagCoffeeTea==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of coffeeTeaList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsCoffeeTeaMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagCoffeeTea==true && flagCoffeeTea1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagPizza==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of pizzaList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsPizzaMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagPizza==true && flagPizza1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagFastFood==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of fastFoodList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsFastFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagFastFood==true && flagFastFood1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+<div *ngIf="flagAsian==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of asianList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsAsianMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagAsian==true && flagAsian1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+
+
+<div *ngIf="flagBakery==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of bakeryList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsBakeryFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagBakery==true && flagBakery1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagItalian==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of italianList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsItalianFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagItalian==true && flagItalian1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+<div *ngIf="flagSandwitch==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of sandwitchList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsSandwitchFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagSandwitch==true && flagSandwitch1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+
+<div *ngIf="flagChinese==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of chineseList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsChineseFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagChinese==true && flagChinese1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagPubFood==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of pubFoodList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsPubFoodFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagPubFood==true && flagPubFood1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+<div *ngIf="flagOther==true"> <div class="row">
+ <div class="col-sm-2">
+ <ul class="inputcolor">
+ <div style="overflow-y: scroll;">
+ <li style="padding: 9px 18px;text-align: center;font-size: 13px; color:000000;   font-weight: bold;">RESULTS </li>
+ <div *ngFor="let list of otherList;">
+<div *ngFor="let menu of list.restaurants;">
+<li  style="padding: 9px 18px;text-align: center;"><div (click)="getDetailsOtherFoodMenu(menu)"> {{menu.restaurant.name}}</div></li>
+ </div>
+ </div>
+ </div>
+</ul>
+</div>
+<div *ngIf="flagOther==true && flagOther1==true" class="col-sm-6" style="background-color: #f1f1f1;">
+<div class="row">
+<div class="col-sm-5">
+<img src="{{restaurantThumb}}"  width="350" height="460" style="padding :35px">
+</div>
+<div class="col-sm-7" style="padding :35px">
+<h3> {{restaurantName}} </h3>
+<span style=" font-size: 15px; color:#808080">{{ restaurantAddress}} </span>
+<div *ngIf="has_table_booking==0"><p style=" margin-top: 26px;"><span class="right"> &#x2713;</span>   Booking </p></div>
+<div *ngIf="has_table_booking==1"><p style=" margin-top: 26px;"><span class="wrong">&#x2715; </span>   No Booking</p></div>
+<div *ngIf="is_delivering_now==1"><p style="margin-top: -20px;"><span class="right"> &#x2713;</span>   Delivery Available</p></div>
+<div *ngIf="is_delivering_now==0"><p style="margin-top: -20px;"><span class="wrong">&#x2715; </span>   Delivery Available</p></div>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">CUISINES</h5>
+ <p>{{cuisines}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">PHONE NUMBER</h5>
+ <p>{{phone_numbers}}</p>
+ <h5 style=" font-size: 15px; color:#000000; padding-top: 14px;">OPENING HOURS</h5>
+  <p>Today {{timings}}<label class="btn btn-success">Open Now </label></p>
+ </div>
+ </div>
+ </div>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
